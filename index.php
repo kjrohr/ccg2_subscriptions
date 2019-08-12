@@ -13,13 +13,8 @@ try {
 }
 
 $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date FROM subscriptions');
-while ($row = $stmt->fetch())
-{
-    echo $row['first_name'] . "\n";
-    echo $row['last_name'] . "\n";
-    echo $row['sub_start_date'] . "\n";
-    echo $row['sub_end_date'] . "\n";
-}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +24,7 @@ while ($row = $stmt->fetch())
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CCG2 Premium Subscriptions</title>
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
     <table>
@@ -37,8 +33,37 @@ while ($row = $stmt->fetch())
         <td>Last Name</td>
         <td>Subscription Start</td>
         <td>Subscription End</td>
+        <td>Status</td>
         </tr>
-
+        <?php
+        
+            while ($row = $stmt->fetch()){
+            ?>
+            <tr>
+            <td><?php echo $row['first_name'] ?></td>
+            <td><?php echo $row['last_name'] ?></td>
+            <td><?php echo $row['sub_start_date']  ?></td>
+            <td><?php echo $row['sub_end_date']  ?></td>
+            <?php 
+            $now = date("Y-m-d");
+            if ($now > $row['sub_end_date'])
+            {
+            ?>
+            <td>Expired</td>
+            <?php
+            }
+            else
+            {
+                ?>
+                <td>Active</td>
+                <?php
+            }
+            ?>
+            <?php
+            }
+        ?>
     </table>
+
+
 </body>
 </html>
