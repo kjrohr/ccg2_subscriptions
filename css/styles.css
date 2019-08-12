@@ -9,3 +9,14 @@ table {
 .expired {
     background-color: red;
 }
+
+.row {
+    background-color: greenyellow;
+}
+
+thead {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: lightblue;
+
+}

@@ -27,7 +27,13 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
+
+<form action="insert.php" method="post">
+    
+
+</form>
     <table>
+    <thead>
         <tr>
         <td>First Name</td>
         <td>Last Name</td>
@@ -35,11 +41,12 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
         <td>Subscription End</td>
         <td>Status</td>
         </tr>
+    </thead>
         <?php
         
             while ($row = $stmt->fetch()){
             ?>
-            <tr>
+            <tr class="row">
             <td><?php echo $row['first_name'] ?></td>
             <td><?php echo $row['last_name'] ?></td>
             <td><?php echo $row['sub_start_date']  ?></td>
@@ -63,6 +70,8 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
             }
         ?>
     </table>
+
+
 
 <script src="js/main.js"></script>
 </body>
