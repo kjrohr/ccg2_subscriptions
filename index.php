@@ -49,7 +49,7 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
             if ($now > $row['sub_end_date'])
             {
             ?>
-            <td>Expired</td>
+            <td class="status">Expired</td>
             <?php
             }
             else
@@ -64,6 +64,6 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
         ?>
     </table>
 
-
+<script src="js/main.js"></script>
 </body>
 </html>
