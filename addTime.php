@@ -16,7 +16,7 @@ if ($choice == "Yes"){
 try{
     // Create prepared statement
     $sql = "DELETE FROM subscriptions where customer_id=:id";
-    $sql = "UPDATE subscriptions SET sub_end_date=DATE_ADD(NOW(), INTERVAL 30 DAY) WHERE customer_id=:id";
+    $sql = "UPDATE subscriptions SET sub_end_date=DATE_ADD(sub_end_date, INTERVAL 30 DAY) WHERE customer_id=:id";
     $stmt = $pdo->prepare($sql);
     
     // Bind parameters to statement
