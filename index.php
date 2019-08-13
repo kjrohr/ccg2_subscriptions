@@ -12,7 +12,7 @@ try {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-$stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date FROM subscriptions');
+$stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, sub_end_date FROM subscriptions');
 
 
 ?>
@@ -44,11 +44,13 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
     <table>
     <thead>
         <tr>
+        <td>ID</td>
         <td>First Name</td>
         <td>Last Name</td>
         <td>Subscription Start</td>
         <td>Subscription End</td>
         <td>Status</td>
+        <td>Actions</td>
         </tr>
     </thead>
         <?php
@@ -56,6 +58,7 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
             while ($row = $stmt->fetch()){
             ?>
             <tr class="row">
+            <td><?php echo $row['customer_id'] ?></td>
             <td><?php echo $row['first_name'] ?></td>
             <td><?php echo $row['last_name'] ?></td>
             <td><?php echo $row['sub_start_date']  ?></td>
@@ -74,10 +77,14 @@ $stmt = $pdo->query('SELECT first_name, last_name, sub_start_date, sub_end_date 
                 <td>Active</td>
                 <?php
             }
+            
+            echo "<td><form action='updateForm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Update' /></form>";
             ?>
+            </tr>
             <?php
             }
         ?>
+        
     </table>
 
 
