@@ -50,7 +50,7 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
         <td>Subscription Start</td>
         <td>Subscription End</td>
         <td>Status</td>
-        <td>Actions</td>
+        <td colspan="2">Actions</td>
         </tr>
     </thead>
         <?php
@@ -79,6 +79,8 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
             }
             
             echo "<td><form action='updateForm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Update' /></form>";
+            echo "<td><form action='deleteConfirm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Delete' /></form>";
+
             ?>
             </tr>
             <?php
