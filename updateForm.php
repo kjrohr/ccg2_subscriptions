@@ -34,19 +34,19 @@ unset($pdo);
 <form action="update.php" method="post">
     <p>
         <label for="firstName">First Name: </label>
-        <input type="text" name="first_name" id="firstName" value="<?php echo $user['first_name'] ?>"required autofocus>
+        <input type="text" name="first_name" id="firstName" value="<?php echo $user['first_name'] ?>" placeholder="Do not leave blank" required autofocus>
     </p>
     <p>
         <label for="lastName">Last Name: </label>
-        <input type="text" name="last_name" id="lastName" value="<?php echo $user['last_name'] ?>" required>
+        <input type="text" name="last_name" id="lastName" value="<?php echo $user['last_name'] ?>" placeholder="Do not leave blank" required>
     </p>
     <p>
         <label for="subStartDate">Subscription Start Date: </label>
-        <input type="text" name="sub_start_date" id="subStartDate" value="<?php echo $user['sub_start_date'] ?>" required>
+        <input type="text" name="sub_start_date" id="subStartDate" value="<?php echo $user['sub_start_date'] ?>" placeholder="YYYY-MM-DD"required>
     </p>
     <p>
         <label for="subEndDate">Subscription End Date: </label>
-        <input type="text" name="sub_end_date" id="subEndDate" value="<?php echo $user['sub_end_date'] ?>" required>
+        <input type="text" name="sub_end_date" id="subEndDate" value="<?php echo $user['sub_end_date'] ?>" placeholder="YYYY-MM-DD" required>
     </p>
     <input type="hidden" name="customer_id" value="<?php echo $customer_id ?>" >
     <input type="submit" value="Submit">

@@ -34,11 +34,11 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
 <form action="insert.php" method="post" name="addForm">
     <p>
         <label for="firstName">First Name: </label>
-        <input type="text" name="first_name" id="firstName" required autofocus>
+        <input type="text" name="first_name" id="firstName" placeholder="Do not leave blank" required autofocus>
     </p>
     <p>
         <label for="lastName">Last Name: </label>
-        <input type="text" name="last_name" id="lastName" required>
+        <input type="text" name="last_name" id="lastName" placeholder="Do not leave blank" required>
     </p>
     <input type="submit" value="Submit">
 
