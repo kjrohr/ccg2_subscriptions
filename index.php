@@ -34,6 +34,7 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
 include "header.php";
 ?>
 <form action="insert.php" method="post" name="addForm">
+    <h2>Add new Subscriber</h2>
     <p>
         <label for="firstName">First Name: </label>
         <input type="text" name="first_name" id="firstName" placeholder="Do not leave blank" required autofocus>
@@ -45,6 +46,7 @@ include "header.php";
     <input type="submit" value="Submit">
 
 </form>
+<hr />
 <br />
     <table>
     <thead>
