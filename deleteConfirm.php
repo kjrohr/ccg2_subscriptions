@@ -47,5 +47,6 @@ unset($pdo);
         </p>
         <input type="hidden" name="customer_id" value="<?php echo $customer_id ?>">
     </form>
+    <script src="js/main.js"></script>
 </body>
 </html>

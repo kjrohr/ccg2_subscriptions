@@ -23,12 +23,15 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>CCG2 Premium Subscriptions</title>
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
 
-<form action="insert.php" method="post">
+<form action="insert.php" method="post" name="addForm">
     <p>
         <label for="firstName">First Name: </label>
         <input type="text" name="first_name" id="firstName" required autofocus>
@@ -50,7 +53,7 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
         <td>Subscription Start</td>
         <td>Subscription End</td>
         <td>Status</td>
-        <td colspan="2">Actions</td>
+        <td colspan="3">Actions</td>
         </tr>
     </thead>
         <?php
@@ -80,7 +83,7 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
             
             echo "<td><form action='updateForm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Update' /></form>";
             echo "<td><form action='deleteConfirm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Delete' /></form>";
-
+            echo "<td><form action='continueSub.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Add Time' /></form>";
             ?>
             </tr>
             <?php
