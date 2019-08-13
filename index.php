@@ -33,7 +33,7 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
 <?php
 include "header.php";
 ?>
-<form action="insert.php" method="post" name="addForm">
+<form action="insert.php" method="post" name="addForm" id="addForm">
     <h2>Add new Subscriber</h2>
     <p>
         <label for="firstName">First Name: </label>
