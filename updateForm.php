@@ -31,6 +31,9 @@ unset($pdo);
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
+<?php
+include "header.php";
+?>
 <form action="update.php" method="post">
     <p>
         <label for="firstName">First Name: </label>

@@ -36,6 +36,9 @@ unset($pdo);
 
 </head>
 <body>
+<?php
+include "header.php";
+?>
     <h2>Are you sure you want to delete <?php echo $first_name . ' ' . $last_name ?>?</h2>
 
     <form action="delete.php" method="post">

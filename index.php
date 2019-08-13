@@ -30,7 +30,9 @@ $stmt = $pdo->query('SELECT customer_id, first_name, last_name, sub_start_date, 
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-
+<?php
+include "header.php";
+?>
 <form action="insert.php" method="post" name="addForm">
     <p>
         <label for="firstName">First Name: </label>

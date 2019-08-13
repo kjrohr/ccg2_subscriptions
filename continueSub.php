@@ -36,6 +36,9 @@ unset($pdo);
 
 </head>
 <body>
+<?php
+include "header.php";
+?>
     <h2>Do you want to add time to <?php echo $first_name . ' ' . $last_name ?>?</h2>
 
     <form action="addTime.php" method="post">
