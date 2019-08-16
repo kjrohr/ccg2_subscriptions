@@ -61,6 +61,9 @@ include "header.php";
         </tr>
     </thead>
         <?php
+            // ****** GENERATE CSV ******
+            $file = fopen("output/backup.csv","w");
+            fputcsv($file,array('first_name','last_name','sub_start_date','sub_end_date'));
         
             while ($row = $stmt->fetch()){
             ?>
@@ -91,7 +94,13 @@ include "header.php";
             ?>
             </tr>
             <?php
+
+
+
+            fputcsv($file, array($row['first_name'], $row['last_name'],$row['sub_start_date'],$row['sub_end_date']));
             }
+            fclose($file);
+            // ****** END GENERATE CSV ******
         ?>
         
     </table>
