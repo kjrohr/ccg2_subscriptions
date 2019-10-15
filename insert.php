@@ -12,7 +12,7 @@ try{
 // Attempt insert query execution
 try{
     // Create prepared statement
-    $sql = "INSERT INTO subscriptions (first_name, last_name, sub_start_date, sub_end_date) VALUES (:first_name, :last_name, now(), DATE_ADD(NOW(), interval 30 day))";
+    $sql = "INSERT INTO subscriptions (first_name, last_name, sub_start_date, sub_end_date, created_at) VALUES (:first_name, :last_name, now(), DATE_ADD(NOW(), interval 30 day), now())";
     $stmt = $pdo->prepare($sql);
     
     // Bind parameters to statement
