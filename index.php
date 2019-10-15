@@ -61,6 +61,7 @@ include "header.php";
         </tr>
     </thead>
         <?php
+            $correctDate;
             // ****** GENERATE CSV ******
             $file = fopen("output/backup.csv","w");
             fputcsv($file,array('first_name','last_name','sub_start_date','sub_end_date'));
@@ -77,12 +78,14 @@ include "header.php";
             $now = date("Y-m-d");
             if ($now > $row['sub_end_date'])
             {
+                $correctDate = $now;
             ?>
             <td class="status">Expired</td>
             <?php
             }
             else
             {
+                $correctDate = $row['sub_end_date'];
                 ?>
                 <td>Active</td>
                 <?php
@@ -90,7 +93,7 @@ include "header.php";
             
             echo "<td><form action='updateForm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Update' /></form>";
             echo "<td><form action='deleteConfirm.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Delete' /></form>";
-            echo "<td><form action='continueSub.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Add Time' /></form>";
+            echo "<td><form action='continueSub.php' method='post'><input type='hidden' name='id' value='". $row['customer_id'] ."' /><input id='" . $row['customer_id'] . "' type='submit' value='Add Time' /><input type='hidden' name='correctDate' value='". $correctDate ."' /></form>";
             ?>
             </tr>
             <?php

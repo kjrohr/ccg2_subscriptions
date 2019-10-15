@@ -1,8 +1,8 @@
 <?php
 $customer_id = $_REQUEST['customer_id'];
 $choice = $_REQUEST['choice'];
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+$correctDate = $_REQUEST['correctDate'];
+
 try{
     $pdo = new PDO("mysql:host=localhost;dbname=ccg2", "root", "root");
     // Set the PDO error mode to exception
@@ -15,12 +15,13 @@ if ($choice == "Yes"){
 // Attempt insert query execution
 try{
     // Create prepared statement
-    $sql = "DELETE FROM subscriptions where customer_id=:id";
-    $sql = "UPDATE subscriptions SET sub_end_date=DATE_ADD(sub_end_date, INTERVAL 30 DAY) WHERE customer_id=:id";
+    //$sql = "DELETE FROM subscriptions where customer_id=:id";
+    $sql = "UPDATE subscriptions SET sub_end_date=DATE_ADD(:correctDate, INTERVAL 30 DAY) WHERE customer_id=:id";
     $stmt = $pdo->prepare($sql);
     
     // Bind parameters to statement
     $stmt->bindParam(':id', $customer_id);
+    $stmt->bindParam(':correctDate', $correctDate);
     
     // Execute the prepared statement
     $stmt->execute();

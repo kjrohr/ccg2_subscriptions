@@ -1,5 +1,6 @@
 <?php 
  $customer_id = $_POST['id'];
+ $correctDate = $_POST['correctDate'];
  $host = 'localhost';
  $db   = 'ccg2';
  $user = 'root';
@@ -49,6 +50,7 @@ include "header.php";
             <input type="submit" name="choice" value="No">
         </p>
         <input type="hidden" name="customer_id" value="<?php echo $customer_id ?>">
+        <input type="hidden" name="correctDate" value="<?php echo $correctDate ?>">
     </form>
     <script src="js/main.js"></script>
 </body>
